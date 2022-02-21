@@ -1,0 +1,6 @@
+framework module Pods_Organizer_OrganizerUITests {
+  umbrella header "Pods-Organizer-OrganizerUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
