@@ -21,9 +21,10 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UEt-vf-Xki">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="500"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A0I-Hd-n0D">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMQ-jh-Eh8" userLabel="Lottie View">
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="340"/>
-                            </imageView>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="cg4-Ar-bSh">
                                 <rect key="frame" x="16" y="340" width="268" height="144"/>
                                 <subviews>
@@ -53,13 +54,13 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="UMQ-jh-Eh8" firstAttribute="leading" secondItem="UEt-vf-Xki" secondAttribute="leading" id="3jt-vb-TGP"/>
                             <constraint firstAttribute="trailing" secondItem="cg4-Ar-bSh" secondAttribute="trailing" constant="16" id="5SG-cR-okS"/>
-                            <constraint firstItem="A0I-Hd-n0D" firstAttribute="leading" secondItem="UEt-vf-Xki" secondAttribute="leading" id="6YM-fS-xiG"/>
+                            <constraint firstItem="cg4-Ar-bSh" firstAttribute="top" secondItem="UMQ-jh-Eh8" secondAttribute="bottom" id="HPl-P0-Nsd"/>
                             <constraint firstItem="cg4-Ar-bSh" firstAttribute="leading" secondItem="UEt-vf-Xki" secondAttribute="leading" constant="16" id="MDi-UT-sNN"/>
-                            <constraint firstItem="cg4-Ar-bSh" firstAttribute="top" secondItem="A0I-Hd-n0D" secondAttribute="bottom" id="Okg-SL-1Jg"/>
-                            <constraint firstAttribute="trailing" secondItem="A0I-Hd-n0D" secondAttribute="trailing" id="i33-fQ-d4p"/>
+                            <constraint firstItem="UMQ-jh-Eh8" firstAttribute="top" secondItem="UEt-vf-Xki" secondAttribute="top" id="UUE-Uv-Xcj"/>
+                            <constraint firstAttribute="trailing" secondItem="UMQ-jh-Eh8" secondAttribute="trailing" id="aOZ-NF-fLD"/>
                             <constraint firstAttribute="bottom" secondItem="cg4-Ar-bSh" secondAttribute="bottom" constant="16" id="kVd-3y-hf4"/>
-                            <constraint firstItem="A0I-Hd-n0D" firstAttribute="top" secondItem="UEt-vf-Xki" secondAttribute="top" id="sMT-0b-UZz"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -73,7 +74,7 @@
             </constraints>
             <connections>
                 <outlet property="descLabel" destination="bJI-cl-HO2" id="9bT-uK-qsd"/>
-                <outlet property="mainImageView" destination="A0I-Hd-n0D" id="UjA-Ja-jdZ"/>
+                <outlet property="lottieView" destination="UMQ-jh-Eh8" id="yiG-dj-ycK"/>
                 <outlet property="titleLabel" destination="GMy-8T-nbf" id="lsr-uj-Tpg"/>
             </connections>
             <point key="canvasLocation" x="139" y="140"/>

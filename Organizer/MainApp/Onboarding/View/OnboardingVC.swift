@@ -8,6 +8,8 @@
 import UIKit
 import AVFoundation
 
+// #527D9F
+
 class OnboardingVC: BaseVC {
 
     @IBOutlet weak var nextButton: ContentButton!
@@ -17,8 +19,10 @@ class OnboardingVC: BaseVC {
     var slides: [OnboardingSlide] = []
     var currentPage = 0 {
         didSet {
+            if currentPage != oldValue {
+                self.soundEffect(resourceName: "page-flip")
+            }
             pageControl.currentPage = currentPage
-            self.soundEffect(resourceName: "page-flip")
             if currentPage == slides.count - 1 { // lastPage
                 nextButton.setTitle("Get Started", for: .normal)
             } else {
@@ -31,11 +35,14 @@ class OnboardingVC: BaseVC {
         super.viewDidLoad()
 
         slides = [
-            OnboardingSlide(title: "Delicious Dishes", description: "Experience a variety of amazing dishes from diffent culture around the world", image: UIImage(named: "slide1")),
-            OnboardingSlide(title: "Delicious Dishes", description: "Experience a variety of amazing dishes from diffent culture around the world", image: UIImage(named: "slide2"))
+            OnboardingSlide(title: "Delicious Dishes", description: "Experience a variety of amazing dishes from diffent culture around the world", animation: .calendar),
+            OnboardingSlide(title: "Delicious Dishes", description: "Experience a variety of amazing dishes from diffent culture around the world", animation: .event),
+            OnboardingSlide(title: "Delicious Dishes", description: "Experience a variety of amazing dishes from diffent culture around the world", animation: .calendar),
+            OnboardingSlide(title: "Delicious Dishes!!", description: "Experience a variety of amazing dishes from diffent culture around the world", animation: .event)
         ]
 
         setupCollectionView()
+        pageControl.numberOfPages = slides.count
     }
 
     private func setupCollectionView() {
@@ -66,7 +73,8 @@ extension OnboardingVC: UICollectionViewDelegate,
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCell.identifier, for: indexPath) as! OnboardingCell
-        cell.setup(slides[indexPath.row])
+        let slide = slides[indexPath.row]
+        cell.configure(slide)
 
         return cell
     }
