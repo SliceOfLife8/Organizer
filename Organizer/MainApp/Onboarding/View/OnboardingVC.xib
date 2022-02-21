@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnboardingVC" customModule="Organizer" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="Iqm-hJ-mvf" id="ZW6-tL-o9t"/>
+                <outlet property="nextButton" destination="wlN-Pv-zNn" id="ODH-Vo-IH0"/>
+                <outlet property="pageControl" destination="dZF-QA-CGg" id="eh5-HZ-iSN"/>
+                <outlet property="view" destination="iN0-l3-epB" id="WPN-l9-rLN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Iqm-hJ-mvf">
+                    <rect key="frame" x="0.0" y="44" width="414" height="710"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="QcI-I4-SWq">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlN-Pv-zNn" customClass="ContentButton" customModule="Organizer" customModuleProvider="target">
+                    <rect key="frame" x="132" y="796" width="150" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="2Ss-OB-eiP"/>
+                        <constraint firstAttribute="width" constant="150" id="qlg-NO-lKx"/>
+                    </constraints>
+                    <color key="tintColor" systemColor="opaqueSeparatorColor"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Next"/>
+                </button>
+                <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="dZF-QA-CGg">
+                    <rect key="frame" x="149" y="754" width="116" height="26"/>
+                    <color key="pageIndicatorTintColor" systemColor="systemGray5Color"/>
+                    <color key="currentPageIndicatorTintColor" systemColor="systemRedColor"/>
+                </pageControl>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Iqm-hJ-mvf" secondAttribute="trailing" id="0GD-zG-RUU"/>
+                <constraint firstItem="Iqm-hJ-mvf" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="1tm-b0-1dm"/>
+                <constraint firstItem="wlN-Pv-zNn" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="6h3-Od-ieu"/>
+                <constraint firstItem="dZF-QA-CGg" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="9EE-vg-hxB"/>
+                <constraint firstItem="wlN-Pv-zNn" firstAttribute="top" secondItem="dZF-QA-CGg" secondAttribute="bottom" constant="16" id="DLT-2Z-LAC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="wlN-Pv-zNn" secondAttribute="bottom" constant="16" id="Eyx-VP-ESc"/>
+                <constraint firstItem="Iqm-hJ-mvf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="MuP-Md-LqA"/>
+                <constraint firstItem="dZF-QA-CGg" firstAttribute="top" secondItem="Iqm-hJ-mvf" secondAttribute="bottom" id="V39-6A-deJ"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="140"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

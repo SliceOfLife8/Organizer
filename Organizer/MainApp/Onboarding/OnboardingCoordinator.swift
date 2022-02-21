@@ -1,5 +1,5 @@
 //
-//  OnBoardingCoordinator.swift
+//  OnboardingCoordinator.swift
 //  Organizer
 //
 //  Created by Petimezas, Chris, Vodafone on 20/2/22.
@@ -26,9 +26,9 @@ final class OnboardingCoordinator: NavigationCoordinator {
     //    private let textAndButtonViewController: TextAndButtonViewController
     //
     init() {
-        let initialVC = ViewController()
+        let onboardingVC = OnboardingVC()
 
-        let navigationController = UINavigationController(rootViewController: initialVC)
+        let navigationController = UINavigationController(rootViewController: onboardingVC)
         navigationController.navigationBar.isHidden = true
         self.navigator = Navigator(navigationController: navigationController)
         self.rootViewController = navigationController

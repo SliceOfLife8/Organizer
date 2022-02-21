@@ -20,7 +20,7 @@ final class AppCoordinator: PresentationCoordinator {
     }
 
     func start() {
-        self.route(isFirstTimeUser: false)
+        self.route(isFirstTimeUser: true)
     }
 
 }
@@ -32,6 +32,7 @@ private extension AppCoordinator {
         if isFirstTimeUser {
             let onboardingCoordinator = OnboardingCoordinator()
             onboardingCoordinator.delegate = self
+            onboardingCoordinator.rootViewController.isModalInPresentation = true
             presentCoordinator(onboardingCoordinator, animated: false)
         } else {
             let examplesCoordinator = MainCoordinator()

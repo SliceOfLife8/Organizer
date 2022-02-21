@@ -21,8 +21,18 @@
 		1B1A157F27C2B7BF00F5DE52 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1A157E27C2B7BF00F5DE52 /* AppCoordinator.swift */; };
 		1B1A158127C2B87600F5DE52 /* AppRootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1A158027C2B87600F5DE52 /* AppRootVC.swift */; };
 		1B1A158427C2B92B00F5DE52 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1A158327C2B92B00F5DE52 /* UIView+Extensions.swift */; };
-		1B1A158827C2BA4100F5DE52 /* OnBoardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1A158727C2BA4100F5DE52 /* OnBoardingCoordinator.swift */; };
+		1B1A158827C2BA4100F5DE52 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1A158727C2BA4100F5DE52 /* OnboardingCoordinator.swift */; };
 		1B1A158A27C2BC2600F5DE52 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1A158927C2BC2600F5DE52 /* MainCoordinator.swift */; };
+		1B1A158C27C370CE00F5DE52 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1A158B27C370CE00F5DE52 /* OnboardingVC.swift */; };
+		1B1A159327C3720D00F5DE52 /* OnboardingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B1A159227C3720D00F5DE52 /* OnboardingVC.xib */; };
+		1B1A159527C3725500F5DE52 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1A159427C3725500F5DE52 /* BaseVC.swift */; };
+		1B2E66BB27C377B8008FFEEB /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E66BA27C377B8008FFEEB /* OnboardingSlide.swift */; };
+		1B2E66BF27C37A00008FFEEB /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E66BD27C37A00008FFEEB /* OnboardingCell.swift */; };
+		1B2E66C027C37A00008FFEEB /* OnboardingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B2E66BE27C37A00008FFEEB /* OnboardingCell.xib */; };
+		1B2E66C327C38B24008FFEEB /* ContentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E66C227C38B24008FFEEB /* ContentButton.swift */; };
+		1B2E66C527C38B54008FFEEB /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E66C427C38B54008FFEEB /* UIColor+Extensions.swift */; };
+		1B2E66C727C3938D008FFEEB /* UIImpactFeedbackGenerator+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E66C627C3938D008FFEEB /* UIImpactFeedbackGenerator+Extensions.swift */; };
+		1B2E66C927C39503008FFEEB /* page-flip.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1B2E66C827C39503008FFEEB /* page-flip.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +71,18 @@
 		1B1A157E27C2B7BF00F5DE52 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		1B1A158027C2B87600F5DE52 /* AppRootVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootVC.swift; sourceTree = "<group>"; };
 		1B1A158327C2B92B00F5DE52 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
-		1B1A158727C2BA4100F5DE52 /* OnBoardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCoordinator.swift; sourceTree = "<group>"; };
+		1B1A158727C2BA4100F5DE52 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		1B1A158927C2BC2600F5DE52 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		1B1A158B27C370CE00F5DE52 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
+		1B1A159227C3720D00F5DE52 /* OnboardingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingVC.xib; sourceTree = "<group>"; };
+		1B1A159427C3725500F5DE52 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		1B2E66BA27C377B8008FFEEB /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
+		1B2E66BD27C37A00008FFEEB /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
+		1B2E66BE27C37A00008FFEEB /* OnboardingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCell.xib; sourceTree = "<group>"; };
+		1B2E66C227C38B24008FFEEB /* ContentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentButton.swift; sourceTree = "<group>"; };
+		1B2E66C427C38B54008FFEEB /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		1B2E66C627C3938D008FFEEB /* UIImpactFeedbackGenerator+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImpactFeedbackGenerator+Extensions.swift"; sourceTree = "<group>"; };
+		1B2E66C827C39503008FFEEB /* page-flip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "page-flip.wav"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,9 +133,12 @@
 		1B1A154427C2A9F700F5DE52 /* Organizer */ = {
 			isa = PBXGroup;
 			children = (
-				1B1A157827C2B59700F5DE52 /* MainApp */,
-				1B1A158527C2BA0200F5DE52 /* ViewControllers */,
+				1B1A157827C2B59700F5DE52 /* Core */,
+				1B1A158527C2BA0200F5DE52 /* MainApp */,
 				1B1A158227C2B91300F5DE52 /* Extensions */,
+				1B1A158D27C370FA00F5DE52 /* CustomViews */,
+				1B1A158E27C3711500F5DE52 /* Helpers */,
+				1B2E66C827C39503008FFEEB /* page-flip.wav */,
 				1B1A155127C2A9F800F5DE52 /* Assets.xcassets */,
 				1B1A155327C2A9F800F5DE52 /* LaunchScreen.storyboard */,
 				1B1A155627C2A9F800F5DE52 /* Info.plist */,
@@ -141,15 +164,16 @@
 			path = OrganizerUITests;
 			sourceTree = "<group>";
 		};
-		1B1A157827C2B59700F5DE52 /* MainApp */ = {
+		1B1A157827C2B59700F5DE52 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				1B1A157927C2B5DE00F5DE52 /* Navigation */,
 				1B1A154527C2A9F700F5DE52 /* AppDelegate.swift */,
 				1B1A154727C2A9F700F5DE52 /* SceneDelegate.swift */,
 				1B1A158027C2B87600F5DE52 /* AppRootVC.swift */,
+				1B1A159427C3725500F5DE52 /* BaseVC.swift */,
 			);
-			path = MainApp;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		1B1A157927C2B5DE00F5DE52 /* Navigation */ = {
@@ -167,25 +191,79 @@
 			isa = PBXGroup;
 			children = (
 				1B1A158327C2B92B00F5DE52 /* UIView+Extensions.swift */,
+				1B2E66C427C38B54008FFEEB /* UIColor+Extensions.swift */,
+				1B2E66C627C3938D008FFEEB /* UIImpactFeedbackGenerator+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		1B1A158527C2BA0200F5DE52 /* ViewControllers */ = {
+		1B1A158527C2BA0200F5DE52 /* MainApp */ = {
 			isa = PBXGroup;
 			children = (
 				1B1A154927C2A9F700F5DE52 /* ViewController.swift */,
-				1B1A158627C2BA2A00F5DE52 /* OnBoarding */,
+				1B1A158627C2BA2A00F5DE52 /* Onboarding */,
 			);
-			path = ViewControllers;
+			path = MainApp;
 			sourceTree = "<group>";
 		};
-		1B1A158627C2BA2A00F5DE52 /* OnBoarding */ = {
+		1B1A158627C2BA2A00F5DE52 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				1B1A158727C2BA4100F5DE52 /* OnBoardingCoordinator.swift */,
+				1B1A158727C2BA4100F5DE52 /* OnboardingCoordinator.swift */,
+				1B1A158F27C371B700F5DE52 /* Model */,
+				1B1A159127C371C800F5DE52 /* View */,
+				1B1A159027C371C200F5DE52 /* ViewModel */,
 			);
-			path = OnBoarding;
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		1B1A158D27C370FA00F5DE52 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				1B2E66BC27C379E2008FFEEB /* Onboarding Cell */,
+				1B2E66C227C38B24008FFEEB /* ContentButton.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		1B1A158E27C3711500F5DE52 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		1B1A158F27C371B700F5DE52 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1B2E66BA27C377B8008FFEEB /* OnboardingSlide.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1B1A159027C371C200F5DE52 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1B1A159127C371C800F5DE52 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1B1A158B27C370CE00F5DE52 /* OnboardingVC.swift */,
+				1B1A159227C3720D00F5DE52 /* OnboardingVC.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1B2E66BC27C379E2008FFEEB /* Onboarding Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1B2E66BD27C37A00008FFEEB /* OnboardingCell.swift */,
+				1B2E66BE27C37A00008FFEEB /* OnboardingCell.xib */,
+			);
+			path = "Onboarding Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +372,9 @@
 			files = (
 				1B1A155527C2A9F800F5DE52 /* LaunchScreen.storyboard in Resources */,
 				1B1A155227C2A9F800F5DE52 /* Assets.xcassets in Resources */,
+				1B2E66C027C37A00008FFEEB /* OnboardingCell.xib in Resources */,
+				1B1A159327C3720D00F5DE52 /* OnboardingVC.xib in Resources */,
+				1B2E66C927C39503008FFEEB /* page-flip.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,16 +399,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B2E66BB27C377B8008FFEEB /* OnboardingSlide.swift in Sources */,
 				1B1A158127C2B87600F5DE52 /* AppRootVC.swift in Sources */,
+				1B1A158C27C370CE00F5DE52 /* OnboardingVC.swift in Sources */,
 				1B1A154A27C2A9F700F5DE52 /* ViewController.swift in Sources */,
 				1B1A154627C2A9F700F5DE52 /* AppDelegate.swift in Sources */,
+				1B2E66C327C38B24008FFEEB /* ContentButton.swift in Sources */,
+				1B2E66C727C3938D008FFEEB /* UIImpactFeedbackGenerator+Extensions.swift in Sources */,
 				1B1A158427C2B92B00F5DE52 /* UIView+Extensions.swift in Sources */,
 				1B1A157B27C2B5E800F5DE52 /* Coordinator.swift in Sources */,
 				1B1A158A27C2BC2600F5DE52 /* MainCoordinator.swift in Sources */,
 				1B1A154827C2A9F700F5DE52 /* SceneDelegate.swift in Sources */,
+				1B1A159527C3725500F5DE52 /* BaseVC.swift in Sources */,
 				1B1A155027C2A9F700F5DE52 /* Organizer.xcdatamodeld in Sources */,
-				1B1A158827C2BA4100F5DE52 /* OnBoardingCoordinator.swift in Sources */,
+				1B2E66BF27C37A00008FFEEB /* OnboardingCell.swift in Sources */,
+				1B1A158827C2BA4100F5DE52 /* OnboardingCoordinator.swift in Sources */,
 				1B1A157D27C2B5F000F5DE52 /* Navigator.swift in Sources */,
+				1B2E66C527C38B54008FFEEB /* UIColor+Extensions.swift in Sources */,
 				1B1A157F27C2B7BF00F5DE52 /* AppCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,7 +515,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -482,7 +570,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
