@@ -26,7 +26,8 @@ final class OnboardingCoordinator: NavigationCoordinator {
     //    private let textAndButtonViewController: TextAndButtonViewController
     //
     init() {
-        let onboardingVC = OnboardingVC()
+        let viewModel = OnboardingViewModel()
+        let onboardingVC = OnboardingVC(viewModel)
 
         let navigationController = UINavigationController(rootViewController: onboardingVC)
         navigationController.navigationBar.isHidden = true

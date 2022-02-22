@@ -7,26 +7,10 @@
 		<key>Organizer.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>9</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>1B1A154127C2A9F700F5DE52</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1B1A155A27C2A9F800F5DE52</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1B1A156427C2A9F800F5DE52</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>

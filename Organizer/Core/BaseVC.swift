@@ -12,6 +12,14 @@ class BaseVC: UIViewController {
 
     var audioPlayer: AVAudioPlayer?
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setupUI()
+        setupRxEvents()
+        setupBindables()
+    }
+
     func soundEffect(resourceName name: String, type: String = "wav") {
         guard let pathSound = Bundle.main.path(forResource: name, ofType: type)
         else {
@@ -33,4 +41,11 @@ class BaseVC: UIViewController {
         print("\(String(describing: type(of: self))) deinitialized")
     }
     
+}
+
+// MARK: - Override the following functions whenever you need
+@objc extension BaseVC {
+    func setupUI() {}
+    func setupRxEvents() {}
+    func setupBindables() {}
 }

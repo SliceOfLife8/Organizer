@@ -5,111 +5,129 @@
 //  Created by Petimezas, Chris, Vodafone on 21/2/22.
 //
 
-import UIKit
-import AVFoundation
+import RxSwift
 
 class OnboardingVC: BaseVC {
+    // MARK: - Vars
+    private(set) var viewModel: OnboardingViewModel
+    private let disposeBag = DisposeBag()
 
+    // MARK: - Outlets
     @IBOutlet weak var nextButton: ContentButton!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
 
-    var slides: [OnboardingSlide] = []
-    var currentPage = 0 {
-        didSet {
-            if currentPage != oldValue {
-                self.soundEffect(resourceName: "page-flip")
-            }
-            pageControl.currentPage = currentPage
-            if currentPage == slides.count - 1 { // lastPage
-                nextButton.setTitle("Get Started", for: .normal)
-            } else {
-                nextButton.setTitle("Next", for: .normal)
-            }
-        }
+    // MARK: - Inits
+    init(_ viewModel: OnboardingViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(restartAnimation), name: UIApplication.willEnterForegroundNotification, object: nil)
-
-        slides = [
-            OnboardingSlide(title: "Organise your day!", description: "Keeping track of events. You do not want to miss anything!", animation: .calendar),
-            OnboardingSlide(title: "Reminder", description: "Synchronize the app with the calendar in order to receive proper notifications.", animation: .notifications),
-            OnboardingSlide(title: "Make the app yours!", description: "You can customize the app through a variety of options. Do not hesitate! It's totally free!", animation: .settings),
-            OnboardingSlide(title: "Almost done!", description: "Please we need access in order to modify your calendar.", animation: .rocket)
-        ]
-
         setupCollectionView()
-        pageControl.numberOfPages = slides.count
+        collectionViewEvents()
+        pageControl.numberOfPages = (try? viewModel.outputs.slides.value().count) ?? 0
+    }
+
+    override func setupBindables() {
+        viewModel.outputs.slides
+            .observe(on: MainScheduler.instance)
+            .bind(to: collectionView.rx.items(cellIdentifier: OnboardingCell.identifier, cellType: OnboardingCell.self)) { (source, slide, cell) in
+                cell.configure(slide)
+            }
+            .disposed(by: disposeBag)
+    }
+
+    override func setupRxEvents() {
+        NotificationCenter.default
+            .rx.notification(UIApplication.willEnterForegroundNotification, object: nil)
+            .subscribe(onNext: { _ in
+                let row = try? self.viewModel.inputs.currentPage.value()
+                let visibleCell = self.collectionView.cellForItem(at: IndexPath(row: row ?? 0, section: 0)) as? OnboardingCell
+                visibleCell?.animationView.play()
+            })
+            .disposed(by: disposeBag)
+
+        nextButton.rx
+            .tap
+            .subscribe(onNext: {
+                if let index = self.viewModel.getPageIndex() {
+                    let indexPath = IndexPath(item: index, section: 0)
+                    self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+
+    override func setupUI() {
+        viewModel.inputs.currentPage
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { page in
+                if self.pageControl.currentPage != page { // Old value
+                    self.soundEffect(resourceName: "page-flip")
+                }
+
+                self.pageControl.currentPage = page
+                /// Check if user is on lastPage and show proper title for button
+                let lastPage = page == self.collectionView.numberOfItems(inSection: 0) - 1
+                self.nextButton.setTitle(lastPage ? "Get Started" : "Next", for: .normal)
+            })
+            .disposed(by: disposeBag)
     }
 
     private func setupCollectionView() {
         collectionView.register(UINib(nibName: OnboardingCell.identifier, bundle: nil), forCellWithReuseIdentifier: OnboardingCell.identifier)
-        collectionView.dataSource = self
-        collectionView.delegate = self
+        collectionView.rx
+            .setDelegate(self)
+            .disposed(by: disposeBag)
     }
-
-    private func slideToNextPage() {
-        if currentPage == slides.count - 1 {
-            print("go to next page!")
-        } else {
-            currentPage += 1
-            let indexPath = IndexPath(item: currentPage, section: 0)
-            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        }
-    }
-
-    @objc
-    private func restartAnimation() {
-        let visibleCell = collectionView.cellForItem(at: IndexPath(row: currentPage, section: 0)) as? OnboardingCell
-        visibleCell?.animationView.play()
-    }
-    
 }
 
-extension OnboardingVC: UICollectionViewDelegate,
-                        UICollectionViewDataSource,
-                        UICollectionViewDelegateFlowLayout {
+extension OnboardingVC: UICollectionViewDelegateFlowLayout {
+    private func collectionViewEvents() {
+        collectionView.rx.willDisplayCell
+            .observe(on: MainScheduler.instance)
+            .map { ($0.cell as? OnboardingCell,
+                    try? self.viewModel.slides.value()[safe: $0.at.row]) }
+            .subscribe(onNext: { (cell, slide) in
+                if let _slide = slide {
+                    if cell?.animationView.isAnimationPlaying == false {
+                        cell?.playAnimation(_slide.animation.url)
+                        cell?.animationView.loopAnimation = true
+                    }
+                    if _slide.animation == .rocket {
+                        cell?.animationView.backgroundColor = UIColor(hexString: "#527D9F").withAlphaComponent(0.8)
+                    }
+                }
+            })
+            .disposed(by: disposeBag)
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return slides.count
-    }
+        collectionView.rx.didEndDecelerating
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { _ in
+                let width = self.collectionView.frame.width
+                let page = Int(self.collectionView.contentOffset.x / width)
+                self.viewModel.inputs.currentPage.onNext(page)
+            })
+            .disposed(by: disposeBag)
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCell.identifier, for: indexPath) as! OnboardingCell
-        let slide = slides[indexPath.row]
-        cell.configure(slide)
-
-        return cell
+        collectionView.rx.didEndDisplayingCell
+            .observe(on: MainScheduler.instance)
+            .map { $0.cell as? OnboardingCell }
+            .subscribe(onNext: { cell in
+                cell?.animationView.stop()
+            })
+            .disposed(by: disposeBag)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return collectionView.frame.size
-    }
-
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let width = scrollView.frame.width
-        currentPage = Int(scrollView.contentOffset.x / width)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if let _cell = cell as? OnboardingCell {
-            let slide = slides[indexPath.row]
-            if !_cell.animationView.isAnimationPlaying {
-                _cell.playAnimation(slide.animation.url)
-                _cell.animationView.loopAnimation = true
-            }
-            if slide.animation == .rocket {
-                _cell.animationView.backgroundColor = UIColor(hexString: "#527D9F").withAlphaComponent(0.8)
-            }
-        }
-    }
-
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if let _cell = cell as? OnboardingCell {
-            _cell.animationView.stop()
-        }
     }
 }
