@@ -7,17 +7,15 @@
 
 import UIKit
 import Lottie
+import SDWebImageLottiePlugin
 
 class OnboardingCell: UICollectionViewCell {
 
     static let identifier = String(describing: OnboardingCell.self)
 
-    private lazy var animationView: AnimationView = {
-        let animationView = AnimationView()
-        animationView.loopMode = .loop
-        animationView.clipsToBounds = true
+    lazy var animationView: LOTAnimationView = {
+        let animationView = LOTAnimationView()
         animationView.contentMode = .scaleAspectFit
-        animationView.backgroundBehavior = .forceFinish
         return animationView
     }()
 
@@ -36,14 +34,20 @@ class OnboardingCell: UICollectionViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        //animationView.stop()
-        self.layer.sublayers?.removeAll()
+        animationView.backgroundColor = .clear
+        animationView.stop()
+        animationView.sd_cancelCurrentImageLoad()
     }
 
     func configure(_ slide: OnboardingSlide) {
         titleLabel.text = slide.title
         descLabel.text = slide.description
-        animationView.animation = Animation.named(slide.animation.rawValue)
-        //animationView.play()
+    }
+
+    func playAnimation(_ path: String) {
+        let lottieUrl = URL(string: path)
+        animationView.sd_setImage(with: lottieUrl) { (image, error, cacheType, url) in
+            self.animationView.play()
+        }
     }
 }

@@ -33,10 +33,8 @@
 		1B2E66C527C38B54008FFEEB /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E66C427C38B54008FFEEB /* UIColor+Extensions.swift */; };
 		1B2E66C727C3938D008FFEEB /* UIImpactFeedbackGenerator+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E66C627C3938D008FFEEB /* UIImpactFeedbackGenerator+Extensions.swift */; };
 		1B2E66C927C39503008FFEEB /* page-flip.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1B2E66C827C39503008FFEEB /* page-flip.wav */; };
-		1BB5EB3627C3C4F00046C1E7 /* event.json in Resources */ = {isa = PBXBuildFile; fileRef = 1BB5EB3427C3C4F00046C1E7 /* event.json */; };
-		1BB5EB3727C3C4F00046C1E7 /* festival-calendar.json in Resources */ = {isa = PBXBuildFile; fileRef = 1BB5EB3527C3C4F00046C1E7 /* festival-calendar.json */; };
 		1BB5EB3927C3CD5C0046C1E7 /* LottieAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EB3827C3CD5C0046C1E7 /* LottieAnimations.swift */; };
-		1BB5EB3F27C3D5990046C1E7 /* rocket_launch.json in Resources */ = {isa = PBXBuildFile; fileRef = 1BB5EB3E27C3D5990046C1E7 /* rocket_launch.json */; };
+		1BB5EB4F27C503970046C1E7 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EB4E27C503970046C1E7 /* Collection+Extensions.swift */; };
 		6380B08807E004C5A94E04F2 /* Pods_OrganizerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF7607E685FD15CFEE25BB3C /* Pods_OrganizerTests.framework */; };
 		710AFA89B2B43F25B5A9C435 /* Pods_Organizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7ADE7B945536EE3B32A337 /* Pods_Organizer.framework */; };
 		7FF99003D65E17C480228B32 /* Pods_Organizer_OrganizerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37A7B1C897A57F0C760A9F4A /* Pods_Organizer_OrganizerUITests.framework */; };
@@ -90,10 +88,8 @@
 		1B2E66C427C38B54008FFEEB /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		1B2E66C627C3938D008FFEEB /* UIImpactFeedbackGenerator+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImpactFeedbackGenerator+Extensions.swift"; sourceTree = "<group>"; };
 		1B2E66C827C39503008FFEEB /* page-flip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "page-flip.wav"; sourceTree = "<group>"; };
-		1BB5EB3427C3C4F00046C1E7 /* event.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = event.json; sourceTree = "<group>"; };
-		1BB5EB3527C3C4F00046C1E7 /* festival-calendar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "festival-calendar.json"; sourceTree = "<group>"; };
 		1BB5EB3827C3CD5C0046C1E7 /* LottieAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimations.swift; sourceTree = "<group>"; };
-		1BB5EB3E27C3D5990046C1E7 /* rocket_launch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rocket_launch.json; sourceTree = "<group>"; };
+		1BB5EB4E27C503970046C1E7 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		23F889801ECD4D8A2ED9C44D /* Pods-OrganizerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrganizerTests.release.xcconfig"; path = "Target Support Files/Pods-OrganizerTests/Pods-OrganizerTests.release.xcconfig"; sourceTree = "<group>"; };
 		37A7B1C897A57F0C760A9F4A /* Pods_Organizer_OrganizerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Organizer_OrganizerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4746248C1D7973BC3AA59EE2 /* Pods-Organizer-OrganizerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Organizer-OrganizerUITests.debug.xcconfig"; path = "Target Support Files/Pods-Organizer-OrganizerUITests/Pods-Organizer-OrganizerUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -215,6 +211,7 @@
 				1B1A158327C2B92B00F5DE52 /* UIView+Extensions.swift */,
 				1B2E66C427C38B54008FFEEB /* UIColor+Extensions.swift */,
 				1B2E66C627C3938D008FFEEB /* UIImpactFeedbackGenerator+Extensions.swift */,
+				1BB5EB4E27C503970046C1E7 /* Collection+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -295,7 +292,6 @@
 				1B1A155127C2A9F800F5DE52 /* Assets.xcassets */,
 				1B1A155327C2A9F800F5DE52 /* LaunchScreen.storyboard */,
 				1B1A154E27C2A9F700F5DE52 /* Organizer.xcdatamodeld */,
-				1BB5EB3327C3C4770046C1E7 /* Lottie */,
 				1BB5EB3227C3C4680046C1E7 /* Sounds */,
 			);
 			path = SupportingFiles;
@@ -307,16 +303,6 @@
 				1B2E66C827C39503008FFEEB /* page-flip.wav */,
 			);
 			path = Sounds;
-			sourceTree = "<group>";
-		};
-		1BB5EB3327C3C4770046C1E7 /* Lottie */ = {
-			isa = PBXGroup;
-			children = (
-				1BB5EB3427C3C4F00046C1E7 /* event.json */,
-				1BB5EB3527C3C4F00046C1E7 /* festival-calendar.json */,
-				1BB5EB3E27C3D5990046C1E7 /* rocket_launch.json */,
-			);
-			path = Lottie;
 			sourceTree = "<group>";
 		};
 		7B56E617BA5B7157E1BC10F8 /* Frameworks */ = {
@@ -451,12 +437,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BB5EB3627C3C4F00046C1E7 /* event.json in Resources */,
 				1B1A155527C2A9F800F5DE52 /* LaunchScreen.storyboard in Resources */,
 				1B1A155227C2A9F800F5DE52 /* Assets.xcassets in Resources */,
 				1B2E66C027C37A00008FFEEB /* OnboardingCell.xib in Resources */,
-				1BB5EB3F27C3D5990046C1E7 /* rocket_launch.json in Resources */,
-				1BB5EB3727C3C4F00046C1E7 /* festival-calendar.json in Resources */,
 				1B1A159327C3720D00F5DE52 /* OnboardingVC.xib in Resources */,
 				1B2E66C927C39503008FFEEB /* page-flip.wav in Resources */,
 			);
@@ -595,6 +578,7 @@
 				1B2E66C727C3938D008FFEEB /* UIImpactFeedbackGenerator+Extensions.swift in Sources */,
 				1B1A158427C2B92B00F5DE52 /* UIView+Extensions.swift in Sources */,
 				1B1A157B27C2B5E800F5DE52 /* Coordinator.swift in Sources */,
+				1BB5EB4F27C503970046C1E7 /* Collection+Extensions.swift in Sources */,
 				1B1A158A27C2BC2600F5DE52 /* MainCoordinator.swift in Sources */,
 				1B1A154827C2A9F700F5DE52 /* SceneDelegate.swift in Sources */,
 				1BB5EB3927C3CD5C0046C1E7 /* LottieAnimations.swift in Sources */,

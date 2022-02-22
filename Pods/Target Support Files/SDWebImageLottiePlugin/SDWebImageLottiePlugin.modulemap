@@ -1,0 +1,6 @@
+framework module SDWebImageLottiePlugin {
+  umbrella header "SDWebImageLottiePlugin-umbrella.h"
+
+  export *
+  module * { export * }
+}
