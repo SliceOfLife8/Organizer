@@ -47,11 +47,16 @@ private extension AppCoordinator {
 // MARK: - Onboarding Coordinator Delegate
 extension AppCoordinator: OnboardingCoordinatorDelegate {
 
-    func onboardingCoordinatorDidFinish(_ coordinator: OnboardingCoordinator) {
+    func onboardingCoordinatorDidFinish(_ coordinator: OnboardingCoordinator, userIsGranted: Bool) {
         let isFirstTimeUser = false // update userDefaults
-        route(isFirstTimeUser: isFirstTimeUser)
 
-        dismissCoordinator(coordinator, animated: true)
+        if userIsGranted {
+            route(isFirstTimeUser: false)
+        } else { // We should go to an 'Error' Screen
+
+        }
+        
+        dismissCoordinator(coordinator, modalStyle: .flipHorizontal, animated: true)
     }
 
 }

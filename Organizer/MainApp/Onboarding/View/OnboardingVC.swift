@@ -33,13 +33,12 @@ class OnboardingVC: BaseVC {
 
         setupCollectionView()
         collectionViewEvents()
-        pageControl.numberOfPages = (try? viewModel.outputs.slides.value().count) ?? 0
     }
 
     override func setupBindables() {
-        viewModel.outputs.slides
+        viewModel.output.slides
             .observe(on: MainScheduler.instance)
-            .bind(to: collectionView.rx.items(cellIdentifier: OnboardingCell.identifier, cellType: OnboardingCell.self)) { (source, slide, cell) in
+            .bind(to: collectionView.rx.items(cellIdentifier: OnboardingCell.identifier, cellType: OnboardingCell.self)) { (_, slide, cell) in
                 cell.configure(slide)
             }
             .disposed(by: disposeBag)
@@ -49,7 +48,7 @@ class OnboardingVC: BaseVC {
         NotificationCenter.default
             .rx.notification(UIApplication.willEnterForegroundNotification, object: nil)
             .subscribe(onNext: { _ in
-                let row = try? self.viewModel.inputs.currentPage.value()
+                let row = try? self.viewModel.input.currentPage.value()
                 let visibleCell = self.collectionView.cellForItem(at: IndexPath(row: row ?? 0, section: 0)) as? OnboardingCell
                 visibleCell?.animationView.play()
             })
@@ -67,7 +66,10 @@ class OnboardingVC: BaseVC {
     }
 
     override func setupUI() {
-        viewModel.inputs.currentPage
+        pageControl.numberOfPages = (try? viewModel.output.slides.value().count) ?? 0
+        pageControl.currentPageIndicatorTintColor = UIColor.appColor(.primary)
+
+        viewModel.input.currentPage
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { page in
                 if self.pageControl.currentPage != page { // Old value
@@ -95,7 +97,7 @@ extension OnboardingVC: UICollectionViewDelegateFlowLayout {
         collectionView.rx.willDisplayCell
             .observe(on: MainScheduler.instance)
             .map { ($0.cell as? OnboardingCell,
-                    try? self.viewModel.slides.value()[safe: $0.at.row]) }
+                    try? self.viewModel.output.slides.value()[safe: $0.at.row]) }
             .subscribe(onNext: { (cell, slide) in
                 if let _slide = slide {
                     if cell?.animationView.isAnimationPlaying == false {
@@ -103,7 +105,7 @@ extension OnboardingVC: UICollectionViewDelegateFlowLayout {
                         cell?.animationView.loopAnimation = true
                     }
                     if _slide.animation == .rocket {
-                        cell?.animationView.backgroundColor = UIColor(hexString: "#527D9F").withAlphaComponent(0.8)
+                        cell?.animationView.backgroundColor = UIColor.appColor(.primary).withAlphaComponent(0.8)
                     }
                 }
             })
@@ -114,7 +116,7 @@ extension OnboardingVC: UICollectionViewDelegateFlowLayout {
             .subscribe(onNext: { _ in
                 let width = self.collectionView.frame.width
                 let page = Int(self.collectionView.contentOffset.x / width)
-                self.viewModel.inputs.currentPage.onNext(page)
+                self.viewModel.input.currentPage.onNext(page)
             })
             .disposed(by: disposeBag)
 

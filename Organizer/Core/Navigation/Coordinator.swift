@@ -87,12 +87,14 @@ extension PresentationCoordinator {
 
      - Parameters:
      - childCoordinator: The coordinator to present and retain.
+     - modalStyle: The presentation style of viewController's appearance.
      - animated: Specify `true` to animate the transition or `false` if you do not want the transition to be animated.
      */
 
-    func presentCoordinator(_ childCoordinator: _PresentationCoordinator, animated: Bool) {
+    func presentCoordinator(_ childCoordinator: _PresentationCoordinator, modalStyle: UIModalPresentationStyle = .automatic, animated: Bool) {
         addChildCoordinator(childCoordinator)
         childCoordinator.start()
+        rootViewController.modalPresentationStyle = modalStyle
         rootViewController.present(childCoordinator._rootViewController, animated: animated)
     }
 
@@ -101,11 +103,13 @@ extension PresentationCoordinator {
 
      - Parameters:
      - childCoordinator: The coordinator to dismiss and release.
+     - modalStyle: The transition style of viewController's dismissal.
      - animated: Specify `true` to animate the transition or `false` if you do not want the transition to be animated.
      - completion: The block to execute after the view controller is dismissed.
      */
 
-    func dismissCoordinator(_ childCoordinator: _PresentationCoordinator, animated: Bool, completion: (() -> Void)? = nil) {
+    func dismissCoordinator(_ childCoordinator: _PresentationCoordinator, modalStyle: UIModalTransitionStyle = .coverVertical, animated: Bool, completion: (() -> Void)? = nil) {
+        childCoordinator._rootViewController.modalTransitionStyle = modalStyle
         childCoordinator._rootViewController.dismiss(animated: animated, completion: completion)
         self.removeChildCoordinator(childCoordinator)
     }

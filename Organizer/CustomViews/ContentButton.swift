@@ -56,14 +56,14 @@ class ContentButton: UIButton {
         self.transform = .identity
     }
 
-    func setEnabledState(bgColor: UIColor = .black, titleColor: UIColor = UIColor(hexString: "#EDEDED")) {
+    func setEnabledState(bgColor: UIColor = UIColor.appColor(.contentButton), titleColor: UIColor = UIColor.appColor(.almostBlack)) {
         backgroundColor = bgColor
         setTitleColor(titleColor, for: .normal)
         titleLabel?.textColor = titleColor
         titleLabel?.font = .systemFont(ofSize: 16)
     }
 
-    func setDisableState(bgColor: UIColor = UIColor(hexString: "#EDEDED"), titleColor: UIColor = UIColor(hexString: "#949494")) {
+    func setDisableState(bgColor: UIColor = UIColor.appColor(.almostBlack), titleColor: UIColor = UIColor(hexString: "#949494")) {
         backgroundColor = bgColor
         setTitleColor(titleColor, for: .disabled)
         titleLabel?.textColor = titleColor

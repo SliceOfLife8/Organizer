@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import EventKit
 
 // MARK: - Delegate
 protocol OnboardingCoordinatorDelegate: AnyObject {
-    func onboardingCoordinatorDidFinish(_ coordinator: OnboardingCoordinator)
+    func onboardingCoordinatorDidFinish(_ coordinator: OnboardingCoordinator, userIsGranted: Bool)
 }
 
 // MARK: - Coordinator
@@ -23,11 +24,11 @@ final class OnboardingCoordinator: NavigationCoordinator {
     var navigator: NavigatorType
     var rootViewController: UINavigationController
 
-    //    private let textAndButtonViewController: TextAndButtonViewController
-    //
+    private let onboardingViewModel: OnboardingViewModel
+
     init() {
-        let viewModel = OnboardingViewModel()
-        let onboardingVC = OnboardingVC(viewModel)
+        onboardingViewModel = OnboardingViewModel()
+        let onboardingVC = OnboardingVC(onboardingViewModel)
 
         let navigationController = UINavigationController(rootViewController: onboardingVC)
         navigationController.navigationBar.isHidden = true
@@ -36,27 +37,19 @@ final class OnboardingCoordinator: NavigationCoordinator {
     }
 
     func start() {
-        //textAndButtonViewController.delegate = self
+        onboardingViewModel.delegate = self
     }
 
 }
 
-//// MARK: - Text and Button View Controller Delegate
-//extension OnboardingCoordinator: TextAndButtonViewControllerDelegate {
-//
-//    func textAndButtonViewControllerDidTapButton(_ controller: TextAndButtonViewController) {
-//        let summaryViewController = SummaryViewController()
-//        summaryViewController.delegate = self
-//        navigator.push(summaryViewController, animated: true)
-//    }
-//
-//}
-//
-//// MARK: - Summary View Controller Delegate
-//extension OnboardingCoordinator: SummaryViewControllerDelegate {
-//
-//    func summaryViewControllerDidTapButton(_ controller: SummaryViewController) {
-//        delegate?.onboardingCoordinatorDidFinish(self)
-//    }
-//
-//}
+extension OnboardingCoordinator: OnboardingVMDelegate {
+    func getStartedTapped() {
+        let store = EKEventStore()
+
+        store.requestAccess(to: .event, completion: { granded, error in
+            DispatchQueue.main.async {
+                self.delegate?.onboardingCoordinatorDidFinish(self, userIsGranted: granded)
+            }
+        })
+    }
+}

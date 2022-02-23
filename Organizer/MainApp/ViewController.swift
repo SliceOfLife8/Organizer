@@ -12,7 +12,8 @@ class FirstVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        view.backgroundColor = .yellow
+        view.backgroundColor = UIColor.appColor(.primary)
+        navigationController?.title = "Καλημέρα 👋"
     }
 
 
