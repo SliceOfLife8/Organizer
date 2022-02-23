@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import EventKit
 
 /** The application's root `Coordinator`. */
 
@@ -20,7 +21,23 @@ final class AppCoordinator: PresentationCoordinator {
     }
 
     func start() {
-        self.route(isFirstTimeUser: true)
+        let hasUserSeenOnboardingFlow = LocalStorageManager.shared.retrieve(forKey: .onboarding, type: Bool.self)
+
+        if hasUserSeenOnboardingFlow == true { // Check about 'Event' permission
+            let store = EKEventStore()
+
+            store.requestAccess(to: .event, completion: { granded, error in
+                DispatchQueue.main.async {
+                    if granded {
+                        self.route(isFirstTimeUser: false)
+                    } else {
+                        print("show error view")
+                    }
+                }
+            })
+        } else {
+            self.route(isFirstTimeUser: true)
+        }
     }
 
 }
@@ -41,14 +58,16 @@ private extension AppCoordinator {
             rootViewController.set(childViewController: examplesCoordinator.rootViewController)
         }
     }
-
+    
 }
 
 // MARK: - Onboarding Coordinator Delegate
 extension AppCoordinator: OnboardingCoordinatorDelegate {
 
     func onboardingCoordinatorDidFinish(_ coordinator: OnboardingCoordinator, userIsGranted: Bool) {
-        let isFirstTimeUser = false // update userDefaults
+        LocalStorageManager.shared.save(true,
+                                        forKey: .onboarding,
+                                        withMethod: .userDefaults)
 
         if userIsGranted {
             route(isFirstTimeUser: false)

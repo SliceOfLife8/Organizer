@@ -35,6 +35,8 @@
 		1B2E66C927C39503008FFEEB /* page-flip.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1B2E66C827C39503008FFEEB /* page-flip.wav */; };
 		1BAD835827C5598C007CF1FF /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BAD835727C5598C007CF1FF /* Colors.xcassets */; };
 		1BAD835A27C55AA2007CF1FF /* AssetColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD835927C55AA2007CF1FF /* AssetColor.swift */; };
+		1BAD835C27C61EF7007CF1FF /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD835B27C61EF7007CF1FF /* LocalStorageManager.swift */; };
+		1BAD835E27C61F7F007CF1FF /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD835D27C61F7F007CF1FF /* Date+Extensions.swift */; };
 		1BB5EB3927C3CD5C0046C1E7 /* LottieAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EB3827C3CD5C0046C1E7 /* LottieAnimations.swift */; };
 		1BB5EB4F27C503970046C1E7 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EB4E27C503970046C1E7 /* Collection+Extensions.swift */; };
 		1BB5EB5327C5077A0046C1E7 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB5EB5227C5077A0046C1E7 /* OnboardingViewModel.swift */; };
@@ -93,6 +95,8 @@
 		1B2E66C827C39503008FFEEB /* page-flip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "page-flip.wav"; sourceTree = "<group>"; };
 		1BAD835727C5598C007CF1FF /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		1BAD835927C55AA2007CF1FF /* AssetColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetColor.swift; sourceTree = "<group>"; };
+		1BAD835B27C61EF7007CF1FF /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
+		1BAD835D27C61F7F007CF1FF /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		1BB5EB3827C3CD5C0046C1E7 /* LottieAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimations.swift; sourceTree = "<group>"; };
 		1BB5EB4E27C503970046C1E7 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		1BB5EB5227C5077A0046C1E7 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 				1B2E66C427C38B54008FFEEB /* UIColor+Extensions.swift */,
 				1B2E66C627C3938D008FFEEB /* UIImpactFeedbackGenerator+Extensions.swift */,
 				1BB5EB4E27C503970046C1E7 /* Collection+Extensions.swift */,
+				1BAD835D27C61F7F007CF1FF /* Date+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				1BAD835927C55AA2007CF1FF /* AssetColor.swift */,
+				1BAD835B27C61EF7007CF1FF /* LocalStorageManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -583,6 +589,7 @@
 				1B1A158127C2B87600F5DE52 /* AppRootVC.swift in Sources */,
 				1BAD835A27C55AA2007CF1FF /* AssetColor.swift in Sources */,
 				1B1A158C27C370CE00F5DE52 /* OnboardingVC.swift in Sources */,
+				1BAD835C27C61EF7007CF1FF /* LocalStorageManager.swift in Sources */,
 				1B1A154A27C2A9F700F5DE52 /* ViewController.swift in Sources */,
 				1B1A154627C2A9F700F5DE52 /* AppDelegate.swift in Sources */,
 				1B2E66C327C38B24008FFEEB /* ContentButton.swift in Sources */,
@@ -595,6 +602,7 @@
 				1BB5EB3927C3CD5C0046C1E7 /* LottieAnimations.swift in Sources */,
 				1B1A159527C3725500F5DE52 /* BaseVC.swift in Sources */,
 				1B1A155027C2A9F700F5DE52 /* Organizer.xcdatamodeld in Sources */,
+				1BAD835E27C61F7F007CF1FF /* Date+Extensions.swift in Sources */,
 				1B2E66BF27C37A00008FFEEB /* OnboardingCell.swift in Sources */,
 				1B1A158827C2BA4100F5DE52 /* OnboardingCoordinator.swift in Sources */,
 				1B1A157D27C2B5F000F5DE52 /* Navigator.swift in Sources */,

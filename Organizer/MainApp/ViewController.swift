@@ -12,10 +12,10 @@ class FirstVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        view.backgroundColor = UIColor.appColor(.primary)
-        navigationController?.title = "Καλημέρα 👋"
+        view.backgroundColor = UIColor.appColor(.almostBlack)
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.title = "Καλημέρα 👋"
     }
-
 
 }
 
