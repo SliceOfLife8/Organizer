@@ -33,6 +33,12 @@
 		1B2E66C527C38B54008FFEEB /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E66C427C38B54008FFEEB /* UIColor+Extensions.swift */; };
 		1B2E66C727C3938D008FFEEB /* UIImpactFeedbackGenerator+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E66C627C3938D008FFEEB /* UIImpactFeedbackGenerator+Extensions.swift */; };
 		1B2E66C927C39503008FFEEB /* page-flip.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1B2E66C827C39503008FFEEB /* page-flip.wav */; };
+		1B7CFE0027C6930D002AE171 /* ErrorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7CFDFF27C6930D002AE171 /* ErrorCoordinator.swift */; };
+		1B7CFE0527C6943C002AE171 /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7CFE0427C6943C002AE171 /* ErrorModel.swift */; };
+		1B7CFE0727C694B6002AE171 /* ErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7CFE0627C694B6002AE171 /* ErrorViewModel.swift */; };
+		1B7CFE0927C694C1002AE171 /* ErrorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7CFE0827C694C1002AE171 /* ErrorVC.swift */; };
+		1B7CFE0B27C695F0002AE171 /* ErrorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7CFE0A27C695F0002AE171 /* ErrorVC.xib */; };
+		1B7CFE0E27C698EC002AE171 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7CFE0D27C698EC002AE171 /* GradientButton.swift */; };
 		1BAD835827C5598C007CF1FF /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BAD835727C5598C007CF1FF /* Colors.xcassets */; };
 		1BAD835A27C55AA2007CF1FF /* AssetColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD835927C55AA2007CF1FF /* AssetColor.swift */; };
 		1BAD835C27C61EF7007CF1FF /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD835B27C61EF7007CF1FF /* LocalStorageManager.swift */; };
@@ -93,6 +99,12 @@
 		1B2E66C427C38B54008FFEEB /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		1B2E66C627C3938D008FFEEB /* UIImpactFeedbackGenerator+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImpactFeedbackGenerator+Extensions.swift"; sourceTree = "<group>"; };
 		1B2E66C827C39503008FFEEB /* page-flip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "page-flip.wav"; sourceTree = "<group>"; };
+		1B7CFDFF27C6930D002AE171 /* ErrorCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCoordinator.swift; sourceTree = "<group>"; };
+		1B7CFE0427C6943C002AE171 /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
+		1B7CFE0627C694B6002AE171 /* ErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewModel.swift; sourceTree = "<group>"; };
+		1B7CFE0827C694C1002AE171 /* ErrorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorVC.swift; sourceTree = "<group>"; };
+		1B7CFE0A27C695F0002AE171 /* ErrorVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorVC.xib; sourceTree = "<group>"; };
+		1B7CFE0D27C698EC002AE171 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		1BAD835727C5598C007CF1FF /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		1BAD835927C55AA2007CF1FF /* AssetColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetColor.swift; sourceTree = "<group>"; };
 		1BAD835B27C61EF7007CF1FF /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
@@ -232,6 +244,7 @@
 			children = (
 				1B1A154927C2A9F700F5DE52 /* ViewController.swift */,
 				1B1A158627C2BA2A00F5DE52 /* Onboarding */,
+				1B7CFDFE27C692E3002AE171 /* ErrorView */,
 			);
 			path = MainApp;
 			sourceTree = "<group>";
@@ -250,8 +263,8 @@
 		1B1A158D27C370FA00F5DE52 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				1B7CFE0C27C698DF002AE171 /* Buttons */,
 				1B2E66BC27C379E2008FFEEB /* Onboarding Cell */,
-				1B2E66C227C38B24008FFEEB /* ContentButton.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -298,6 +311,51 @@
 				1B2E66BE27C37A00008FFEEB /* OnboardingCell.xib */,
 			);
 			path = "Onboarding Cell";
+			sourceTree = "<group>";
+		};
+		1B7CFDFE27C692E3002AE171 /* ErrorView */ = {
+			isa = PBXGroup;
+			children = (
+				1B7CFDFF27C6930D002AE171 /* ErrorCoordinator.swift */,
+				1B7CFE0327C69340002AE171 /* Model */,
+				1B7CFE0227C6932B002AE171 /* View */,
+				1B7CFE0127C69313002AE171 /* ViewModel */,
+			);
+			path = ErrorView;
+			sourceTree = "<group>";
+		};
+		1B7CFE0127C69313002AE171 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1B7CFE0627C694B6002AE171 /* ErrorViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1B7CFE0227C6932B002AE171 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1B7CFE0827C694C1002AE171 /* ErrorVC.swift */,
+				1B7CFE0A27C695F0002AE171 /* ErrorVC.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1B7CFE0327C69340002AE171 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1B7CFE0427C6943C002AE171 /* ErrorModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1B7CFE0C27C698DF002AE171 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				1B2E66C227C38B24008FFEEB /* ContentButton.swift */,
+				1B7CFE0D27C698EC002AE171 /* GradientButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		1BB5EB3127C3C45D0046C1E7 /* SupportingFiles */ = {
@@ -457,6 +515,7 @@
 				1B2E66C027C37A00008FFEEB /* OnboardingCell.xib in Resources */,
 				1B1A159327C3720D00F5DE52 /* OnboardingVC.xib in Resources */,
 				1B2E66C927C39503008FFEEB /* page-flip.wav in Resources */,
+				1B7CFE0B27C695F0002AE171 /* ErrorVC.xib in Resources */,
 				1BAD835827C5598C007CF1FF /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -603,7 +662,12 @@
 				1B1A159527C3725500F5DE52 /* BaseVC.swift in Sources */,
 				1B1A155027C2A9F700F5DE52 /* Organizer.xcdatamodeld in Sources */,
 				1BAD835E27C61F7F007CF1FF /* Date+Extensions.swift in Sources */,
+				1B7CFE0727C694B6002AE171 /* ErrorViewModel.swift in Sources */,
+				1B7CFE0E27C698EC002AE171 /* GradientButton.swift in Sources */,
+				1B7CFE0927C694C1002AE171 /* ErrorVC.swift in Sources */,
+				1B7CFE0527C6943C002AE171 /* ErrorModel.swift in Sources */,
 				1B2E66BF27C37A00008FFEEB /* OnboardingCell.swift in Sources */,
+				1B7CFE0027C6930D002AE171 /* ErrorCoordinator.swift in Sources */,
 				1B1A158827C2BA4100F5DE52 /* OnboardingCoordinator.swift in Sources */,
 				1B1A157D27C2B5F000F5DE52 /* Navigator.swift in Sources */,
 				1B2E66C527C38B54008FFEEB /* UIColor+Extensions.swift in Sources */,

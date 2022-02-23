@@ -31,7 +31,7 @@ final class AppCoordinator: PresentationCoordinator {
                     if granded {
                         self.route(isFirstTimeUser: false)
                     } else {
-                        print("show error view")
+                        self.showError()
                     }
                 }
             })
@@ -58,6 +58,12 @@ private extension AppCoordinator {
             rootViewController.set(childViewController: examplesCoordinator.rootViewController)
         }
     }
+
+    func showError() {
+        let errorCoodinator = ErrorCoordinator(.calendarNoPermission)
+        errorCoodinator.delegate = self
+        presentCoordinator(errorCoodinator, modalStyle: .fullScreen, animated: false)
+    }
     
 }
 
@@ -78,4 +84,12 @@ extension AppCoordinator: OnboardingCoordinatorDelegate {
         dismissCoordinator(coordinator, modalStyle: .flipHorizontal, animated: true)
     }
 
+}
+
+// MARK: - Error Coordinator Delegate
+extension AppCoordinator: ErrorCoordinatorDelegate {
+    func errorCoordinatorDidFinish(_ coordinator: OnboardingCoordinator) {
+        route(isFirstTimeUser: false)
+        dismissCoordinator(coordinator, animated: true)
+    }
 }

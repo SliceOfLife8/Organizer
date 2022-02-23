@@ -94,7 +94,7 @@ extension PresentationCoordinator {
     func presentCoordinator(_ childCoordinator: _PresentationCoordinator, modalStyle: UIModalPresentationStyle = .automatic, animated: Bool) {
         addChildCoordinator(childCoordinator)
         childCoordinator.start()
-        rootViewController.modalPresentationStyle = modalStyle
+        childCoordinator._rootViewController.modalPresentationStyle = modalStyle
         rootViewController.present(childCoordinator._rootViewController, animated: animated)
     }
 
