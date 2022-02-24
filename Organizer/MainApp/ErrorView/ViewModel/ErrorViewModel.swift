@@ -24,9 +24,7 @@ final class ErrorViewModel: ErrorVMType {
     var input: ErrorInput
     var output: ErrorOutput
     // MARK: - Inputs
-    struct ErrorInput {
-        func buttonIsPressed() {}
-    }
+    struct ErrorInput {}
     // MARK: - Outputs
     struct ErrorOutput {
         var data: BehaviorSubject<ErrorModel>

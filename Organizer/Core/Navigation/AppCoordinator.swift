@@ -59,10 +59,10 @@ private extension AppCoordinator {
         }
     }
 
-    func showError() {
+    func showError(withAnimation animated: Bool = false) {
         let errorCoodinator = ErrorCoordinator(.calendarNoPermission)
         errorCoodinator.delegate = self
-        presentCoordinator(errorCoodinator, modalStyle: .fullScreen, animated: false)
+        presentCoordinator(errorCoodinator, modalStyle: .fullScreen, animated: animated)
     }
     
 }
@@ -77,11 +77,13 @@ extension AppCoordinator: OnboardingCoordinatorDelegate {
 
         if userIsGranted {
             route(isFirstTimeUser: false)
-        } else { // We should go to an 'Error' Screen
 
+            dismissCoordinator(coordinator, modalStyle: .flipHorizontal, animated: true)
+        } else {
+            dismissCoordinator(coordinator, animated: false, completion: {
+                self.showError(withAnimation: true)
+            })
         }
-        
-        dismissCoordinator(coordinator, modalStyle: .flipHorizontal, animated: true)
     }
 
 }

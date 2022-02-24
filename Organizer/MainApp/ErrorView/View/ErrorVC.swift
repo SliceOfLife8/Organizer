@@ -70,5 +70,12 @@ class ErrorVC: BaseVC {
                 self.viewModel.delegate?.buttonTapped()
             })
             .disposed(by: disposeBag)
+
+        NotificationCenter.default
+            .rx.notification(UIApplication.willEnterForegroundNotification, object: nil)
+            .subscribe(onNext: { _ in
+                self.mainButton.titleLabel?.flash(numberOfFlashes: .infinity)
+            })
+            .disposed(by: disposeBag)
     }
 }

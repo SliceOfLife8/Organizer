@@ -46,4 +46,14 @@ extension UIView {
         NSLayoutConstraint.activate(constraints)
     }
 
+    func flash(numberOfFlashes: Float) {
+        let flash = CABasicAnimation(keyPath: "opacity")
+        flash.duration = 0.8
+        flash.fromValue = 1
+        flash.toValue = 0.2
+        flash.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        flash.autoreverses = true
+        flash.repeatCount = numberOfFlashes
+        layer.add(flash, forKey: nil)
+    }
 }

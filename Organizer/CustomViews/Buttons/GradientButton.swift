@@ -19,6 +19,15 @@ class GradientButton: UIButton {
         setSizes()
     }
 
+    override open var intrinsicContentSize: CGSize {
+            let intrinsicContentSize = super.intrinsicContentSize
+
+            let adjustedWidth = intrinsicContentSize.width + titleEdgeInsets.left + titleEdgeInsets.right
+            let adjustedHeight = intrinsicContentSize.height + titleEdgeInsets.top + titleEdgeInsets.bottom
+
+            return CGSize(width: adjustedWidth, height: adjustedHeight)
+        }
+
     func applyGradient(colors: [CGColor]) {
         self.backgroundColor = nil
         self.layoutIfNeeded()
@@ -30,15 +39,15 @@ class GradientButton: UIButton {
         gradientLayer.cornerRadius = self.frame.height/2
 
         gradientLayer.shadowColor = blend(cgColors: colors).cgColor
-        gradientLayer.shadowOffset = CGSize(width: 1, height: 1)
+        gradientLayer.shadowOffset = CGSize(width: 2, height: 2)
         gradientLayer.shadowRadius = 4.0
         gradientLayer.shadowOpacity = 1.0
         gradientLayer.masksToBounds = false
 
         self.layer.insertSublayer(gradientLayer, at: 0)
         self.contentVerticalAlignment = .center
-        self.setTitleColor(UIColor.init(hexString: "#f2f2f2"), for: .normal)
         self.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        self.titleLabel?.flash(numberOfFlashes: .infinity)
         isHighlighted = false
     }
 
@@ -57,7 +66,6 @@ class GradientButton: UIButton {
     }
 
     private func setSizes() {
-        contentEdgeInsets = UIEdgeInsets(top: 8, left: 32, bottom: 8, right: 32)
         sizeToFit()
         layer.cornerRadius = self.frame.height/2
     }

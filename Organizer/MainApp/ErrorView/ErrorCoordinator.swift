@@ -28,12 +28,12 @@ final class ErrorCoordinator: NavigationCoordinator {
     var rootViewController: UINavigationController
 
     private let viewModel: ErrorViewModel
+    private let error: GenericError
 
     init(_ error: GenericError) {
-        #warning("fix me")
-        let colors = [UIColor.init(hexString: "#2B95CE").cgColor, UIColor.init(hexString: "#2ECAD5").cgColor]
-        let model = ErrorModel(image: UIImage(systemName: "person"), title: "Person", description: "subtitle", buttonTitle: "go to the moon!", buttonColors: colors)
-        viewModel = ErrorViewModel(model)
+        self.error = error
+        let model = ErrorCoordinator.createModel(error: error)
+        self.viewModel = ErrorViewModel(model)
         let errorVC = ErrorVC(viewModel)
 
         let navigationController = UINavigationController(rootViewController: errorVC)
@@ -46,17 +46,24 @@ final class ErrorCoordinator: NavigationCoordinator {
         viewModel.delegate = self
     }
 
-//    private func createModel(error: GenericError) -> ErrorModel {
-//        switch error {
-//        case .calendarNoPermission:
-//            return ErrorModel(image: UIImage(systemName: "person"), title: "Person", description: "subtitle", buttonTitle: "go to the moon!")
-//        }
-//    }
+    private static func createModel(error: GenericError) -> ErrorModel {
+        switch error {
+        case .calendarNoPermission:
+            let colors = [UIColor.init(hexString: "#614385").cgColor, UIColor.init(hexString: "#516395").cgColor]
+            return ErrorModel(image: UIImage(named: "spacecraft"), title: "You don't have access", description: "It seems that you haven't given access to edit your calendars. To create fast and modify your daily events, press here! 👇", buttonTitle: "Open settings", buttonColors: colors)
+        }
+    }
 
 }
 
 extension ErrorCoordinator: ErrorVMDelegate {
+    // Add all actions here
     func buttonTapped() {
-        print("show alert dialog!")
+        switch error {
+        case .calendarNoPermission:
+            if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(settingsUrl)
+            }
+        }
     }
 }
